@@ -18,13 +18,13 @@ script:
   - hexo g
 
 after_script:
-  - git clone https://${GH_REF}.deploy_git
+  - git clone https://${GH_REF} .deploy_git
   - cd .deploy_git
   - git checkout master
   - cd ../
   - mv .deploy_git/.git ./public
   - cd ./public
-    ls -la
+  - ls -la
   # Github Pages
   - git config user.name "Huang Zhen"
   - git config user.email "huangz986@bandingyun.com"
