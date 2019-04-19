@@ -28,7 +28,15 @@ after_script:
   - git config user.email "huangz986@bandingyun.com"
   - git add .
   - git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"
+    # Github Pages
   - git push --force --quiet "https://$travis_ci_hexo@${GH_REF}" master:master
+    # Coding Pages
+  - git push --force --quiet "https://huangz986:$travis_coding_pages@${CO_REF}" master:master
+  - git tag v0.0.$TRAVIS_BUILD_NUMBER -a -m "Auto Tagged by TravisCI with Build $TRAVIS_BUILD_NUMBER"
+    # Github Pages
+  - git push --quiet "https://$travis_ci_hexo@${GH_REF}" master:master --tags
+    # Coding Pages
+  - git push --quiet "https://huangz986:$travis_coding_pages@${CO_REF}" master:master --tags
 
 branches:
   only:
@@ -36,7 +44,10 @@ branches:
 
 env:
   global:
+    # Github Pages
     - GH_REF: github.com/huangz986/huangz986.github.io.git
+    # Coding Pages
+    - CO_REF: git.dev.tencent.com/huangz986/huangz986.coding.me.git
 
 notifications:
   email:
