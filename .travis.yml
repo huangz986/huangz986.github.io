@@ -22,20 +22,27 @@ after_script:
   - cd .deploy_git
   - git checkout master
   - cd ../
-  - mv .deploy_git/.git ./plublic/
+  - mv .deploy_git/.git ./public/
   - cd ./public
+  # Github Pages
   - git config user.name "Huang Zhen"
   - git config user.email "huangz986@bandingyun.com"
   - git add .
   - git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"
-    # Github Pages
   - git push --force --quiet "https://$travis_ci_hexo@${GH_REF}" master:master
-    # Coding Pages
+  - git tag v0.0.$TRAVIS_BUILD_NUMBER -a -m "Auto Tagged by TravisCI with Build $TRAVIS_BUILD_NUMBER"
+  - git push --quiet "https://$travis_ci_hexo@${GH_REF}" master:master --tags
+  # Restore
+  - rm -rf .git
+  - git init
+  # Coding Pages
+  - git config user.name "Huang Zhen"
+  - git config user.email "huangz986@bandingyun.com"
+  - git remote add origin master https://git.dev.tencent.com/huangz986/huangz986.coding.me.git
+  - git add .
+  - git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"
   - git push --force --quiet "https://huangz986:$travis_coding_pages@${CO_REF}" master:master
   - git tag v0.0.$TRAVIS_BUILD_NUMBER -a -m "Auto Tagged by TravisCI with Build $TRAVIS_BUILD_NUMBER"
-    # Github Pages
-  - git push --quiet "https://$travis_ci_hexo@${GH_REF}" master:master --tags
-    # Coding Pages
   - git push --quiet "https://huangz986:$travis_coding_pages@${CO_REF}" master:master --tags
 
 branches:
