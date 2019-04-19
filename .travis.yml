@@ -29,9 +29,9 @@ after_script:
   # push Github Pages
   - git add .
   - git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"
-  - git push --force --quiet "https://$travis_ci_hexo@${GH_REF}" master:master
+  - git push --force --quiet "https://${GITHUB}@${GH_REF}" master:master
   - git tag v0.0.$TRAVIS_BUILD_NUMBER -a -m "Auto Tagged by TravisCI with Build $TRAVIS_BUILD_NUMBER"
-  - git push --quiet "https://$travis_ci_hexo@${GH_REF}" master:master --tags
+  - git push --quiet "https://${GITHUB}@${GH_REF}" master:master --tags
   # clone Coding Pages
   - rm -rf .git
   - cd ..
@@ -45,9 +45,9 @@ after_script:
   # Coding Pages
   - git add .
   - git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"
-  - git push --force --quiet "https://huangz986:$travis_coding_pages@${CO_REF}" master:master
+  - git push --force --quiet "https://huangz986:${CODING}@${CO_REF}" master:master
   - git tag v0.0.$TRAVIS_BUILD_NUMBER -a -m "Auto Tagged by TravisCI with Build $TRAVIS_BUILD_NUMBER"
-  - git push --quiet "https://huangz986:$travis_coding_pages@${CO_REF}" master:master --tags
+  - git push --quiet "https://huangz986:${CODING}@${CO_REF}" master:master --tags
   # Restore
   - rm -rf .git
 
