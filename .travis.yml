@@ -1,0 +1,45 @@
+language: node_js #设置语言
+
+node_js: v11.14.0  # 设置版本
+
+cache:
+  apt: true
+  directories:
+    - node_modules # 缓存不经常更改的内容
+
+before_install:
+  - export TZ='Asia/Shanghai'  #更改时区
+
+install:
+  - npm install  # 安装hexo及插件
+
+script:
+  - hexo clean
+  - hexo g
+
+after_script:
+  - git clone https://${GH_REF}.deploy_git
+  - cd .deploy_git
+  - git checkout master
+  - cd ../
+  - mv .deploy_git/.git ./plublic/
+  - cd ./public
+  - git config user.name "Huang Zhen"
+  - git config user.email "huangz986@bandingyun.com"
+  - git add .
+  - git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"
+  - git push --force --quiet "https://$travis_ci_hexo@${GH_REF}" master:master
+
+branches:
+  only:
+    blog-source
+
+env:
+  global:
+    - GH_REF: github.com/huangz986/huangz986.github.io.git
+
+notifications:
+  email:
+    - huangz986@bandingyun.com
+  on_sucess: change
+  on_failure: always
