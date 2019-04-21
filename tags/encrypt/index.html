@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://bandingyun.com">
-  <title>榛子的小站</title>
+  <title>Tag: encrypt | 榛子的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="记录学习生活。linux, c, c++, rust, qt.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="榛子的小站">
-<meta property="og:url" content="http://bandingyun.com/index.html">
+<meta property="og:url" content="http://bandingyun.com/tags/encrypt/index.html">
 <meta property="og:site_name" content="榛子的小站">
 <meta property="og:description" content="记录学习生活。linux, c, c++, rust, qt.">
 <meta property="og:locale" content="default">
@@ -149,37 +149,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-post-with-encrypt" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/04/21/post-with-encrypt/" class="archive-article-date">
+  	<time datetime="2019-04-21T05:58:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-21</time>
+</a>
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/21/post-with-encrypt/">post with encrypt</a>
+      <a class="archive-article-title" href="/2019/04/21/post-with-encrypt/">post with encrypt</a>
     </h1>
   
 
-        
-        <a href="/2019/04/21/post-with-encrypt/" class="archive-article-date">
-  	<time datetime="2019-04-21T05:58:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        description about encrypt
-        
-          <a class="article-more-a" href="/2019/04/21/post-with-encrypt/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,274 +188,19 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/21/post-with-encrypt/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-Some-Thoughts-About-References-and-Borrowing-of-the-Rust-book" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/21/Some-Thoughts-About-References-and-Borrowing-of-the-Rust-book/">Some Thoughts About References and Borrowing of the Rust book</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/21/Some-Thoughts-About-References-and-Borrowing-of-the-Rust-book/" class="archive-article-date">
-  	<time datetime="2019-04-20T16:21:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>I’ve been reading the book, <strong>The Rust Programming Language</strong>, lately, and after reading <em>CH4.2. References and Borrowing</em>, I think there is something wrong or misleading in the book. In general, it concluded that the rules of references are:<br>1.<em> At any given time, you can have </em>either<em> one mutable reference or any number of immutable references.<br>2.</em> <em>References must always be valid.</em><br>These two rules are definitely right of course, but they are not very clear and accurate. Actually, it’s not just the book, the rustc’s error messages about borrowing are not very clear either.    </p>
-<h2 id="The-REAL-Rules-of-References"><a href="#The-REAL-Rules-of-References" class="headerlink" title="The REAL Rules of References"></a>The <em>REAL</em> Rules of References</h2><p>Here I will state the rules of references in my understanding first, and then explain the details. The rules are:</p>
-<ol>
-<li>References must be valid while being used.</li>
-<li>A mutable reference will invalidate all previous references, including mutable and immutable ones.</li>
-<li>An immutable reference will invalidate the previous mutable reference, if there is one, but don’t affect other immutable references.    </li>
-</ol>
-<p><em>ps: these rules apply to “a particular piece of data in a particular scope”</em>   </p>
-<h3 id="When-I-Encounter-The-First-Problem"><a href="#When-I-Encounter-The-First-Problem" class="headerlink" title="When I Encounter The First Problem"></a>When I Encounter The First Problem</h3><p>In the middle of this chapter, It states such a conclusion and gives an example about it:<br><em>But mutable references have one big restriction: you can have only one mutable reference to a particular piece of data in a particular scope. This code will fail:</em><br><em>Filename:src/main.rs</em><br><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="keyword">mut</span> s = <span class="built_in">String</span>::from(<span class="string">"hello"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> r1 = &amp;<span class="keyword">mut</span> s;</span><br><span class="line"><span class="keyword">let</span> r2 = &amp;<span class="keyword">mut</span> s;</span><br><span class="line"></span><br><span class="line"><span class="built_in">println!</span>(<span class="string">"&#123;&#125;, &#123;&#125;"</span>, r1, r2);</span><br></pre></td></tr></table></figure></p>
-<p>The error message says:<br><code>error[E0499]: cannot borrow &#39;s&#39; as mutable more than once at a time</code>   </p>
-<p>Well, this example doesn’t compile indeed. But somehow I accidentally delete the last sentence of the example, and compile it successly without error. How could that happen? <code>Rustc</code> just tell me <em>cannot borrow ‘s’ as mutable more than once at a time</em>, and there are two references <code>r1</code> and <code>r2</code>, if I don’t <code>println!</code> then no error at all? So I CAN borrow ‘s’ more than once? Then I try to print r1 and r2 separately, error occurs. I could print <code>r2</code> but not <code>r1</code>. </p>
-<h3 id="And-then"><a href="#And-then" class="headerlink" title="And then"></a>And then</h3><p>As I read on, something similar happens, if combining mutable and immutable references:<br><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="keyword">mut</span> s = <span class="built_in">String</span>::from(<span class="string">"hello"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> r1 = &amp;s; <span class="comment">// no problem</span></span><br><span class="line"><span class="keyword">let</span> r2 = &amp;s; <span class="comment">// no problem</span></span><br><span class="line"><span class="keyword">let</span> r3 = &amp;<span class="keyword">mut</span> s; <span class="comment">// BIG PROBLEM</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">println!</span>(<span class="string">"&#123;&#125;, &#123;&#125;, and &#123;&#125;"</span>, r1, r2 ,r3);</span><br></pre></td></tr></table></figure></p>
-<p>Error says:<br><code>error[E0502]: cannot borrow &#39;s&#39; as mutable because it is also borrowed as immutable</code>     </p>
-<p>Actually, there is no problem when declaring r3, but a <em>BIG PROBLEM</em> if you try to print all references. I you print them separately, you’ll find that r3 is printable, while <code>r1</code> and <code>r2</code> are not available to print. As the error message says, I <em>cannot borrow ‘s’ as mutable because it is also borrowed as immutable</em>, we know it’s definitely no true. </p>
-<h2 id="The-Conclusion"><a href="#The-Conclusion" class="headerlink" title="The Conclusion"></a>The Conclusion</h2><p>From the previous examples, we know that we <strong>could</strong> <em>borrow ‘s’ as mutable more than once</em>, but we could only access the last one, and that we <strong>could</strong> <em>borrow ‘s’ as mutable</em> after <em>it is also borrowed as immutable</em>, but again we could only access the last reference which is mutable. The book says <em>References must always be valid</em>, so I assume that there is a validation status for every reference, a reference is accessable only if it’s valid. Thus came my version of rules of references:</p>
-<ol>
-<li>References must be valid while being used.</li>
-<li>A mutable reference will invalidate all previous references, including mutable and immutable ones.</li>
-<li>An immutable reference will invalidate the previous mutable reference, if there is one, but don’t affect other immutable references.     </li>
-</ol>
-<h4 id="Something-Else"><a href="#Something-Else" class="headerlink" title="Something Else"></a>Something Else</h4><p>If you run <code>rustc --explain E0499</code> and <code>rustc --explain E0502</code>, to find the explanations of those examples, you’ll find the same mistakes in them. The <em>wrong</em> examples they provide actually turn out to be correct. Although we have to handle the <code>mut</code> issues which might have been raised due to rust update in those explanations. I had intended to write more details, but I had no spare time to do so. If anyone’s reading my post, he should go through these <code>rustc --explain Exxxx</code> himself.</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">rust</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/21/Some-Thoughts-About-References-and-Borrowing-of-the-Rust-book/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-改学软件测试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/25/改学软件测试/">改学软件测试</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/25/改学软件测试/" class="archive-article-date">
-  	<time datetime="2018-04-25T13:07:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="改学软件测试"><a href="#改学软件测试" class="headerlink" title="改学软件测试"></a>改学软件测试</h3><p>从今天开始，改学软件测试，主要是因为面临经济压力，学Java周期太长。</p>
-<h3 id="长期计划"><a href="#长期计划" class="headerlink" title="长期计划"></a>长期计划</h3><p>职业道路就走软件测试方向。<br>自考至博士，至少也要到硕士，不争馒头争口气。这口气不争，何以立足！   </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/25/改学软件测试/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hexo-github建站基本功能完成" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/06/hexo-github建站基本功能完成/">hexo+github建站基本功能完成</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/06/hexo-github建站基本功能完成/" class="archive-article-date">
-  	<time datetime="2018-02-06T12:54:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="建站完成"><a href="#建站完成" class="headerlink" title="建站完成"></a>建站完成</h3><p>综合多篇文章，选用一个简单主题，基本功能就有了，边用边学吧。    </p>
-<h3 id="建站目的"><a href="#建站目的" class="headerlink" title="建站目的"></a>建站目的</h3><p>主要是因为想学习Java，从事开发工作。顺便开始记录自己的人生，希望能够坚持下去。   </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">nonsense</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/06/hexo-github建站基本功能完成/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
 
 
           </div>
@@ -480,10 +222,10 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
