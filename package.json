@@ -6,6 +6,7 @@
     "version": "3.8.0"
   },
   "dependencies": {
+    "hexo-blog-encrypt": "1.1.*",
     "braces": "^3.0.2",
     "core-js": "^2.6.5",
     "eslint": "^5.16.0",
