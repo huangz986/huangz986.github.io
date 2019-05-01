@@ -27,6 +27,8 @@ after_script:
   - mv .deploy_git/.git public/
   - cd public
   # push Github Pages
+  - touch github
+  - echo 'github' > github
   - git add .
   - git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"
   - git push --force --quiet "https://${GITHUB}@${GH_REF}" master:master
@@ -43,6 +45,8 @@ after_script:
   - mv .deploy_git/.git public/
   - cd public
   # Coding Pages
+  - touch coding
+  - echo 'coding' > coding
   - git add .
   - git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"
   - git push --force --quiet "https://${CODING_USER}:${CODING_PASS}@${CO_REF}" master:master
